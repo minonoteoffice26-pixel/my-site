@@ -1,0 +1,440 @@
+/* WF-054 v1: minonote basic styles */
+
+/* ========== Base / Reset ========== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN",
+    "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
+  line-height: 1.7;
+  color: #111;
+  background: #fff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  opacity: 0.85;
+}
+
+.container {
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.section {
+  padding: 56px 0;
+}
+
+.note {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* ========== Skip link ========== */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 8px;
+  background: #111;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  z-index: 999;
+}
+.skip-link:focus {
+  left: 12px;
+}
+
+/* ========== Header / Nav ========== */
+.site-header {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid #eee;
+  z-index: 50;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+}
+
+.brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+
+.brand-sub {
+  font-weight: 600;
+  color: #555;
+  margin-left: 8px;
+  font-size: 0.95em;
+}
+
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.site-nav a {
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+.site-nav a[aria-current="page"] {
+  background: #f4f4f4;
+}
+
+.nav-cta {
+  border: 1px solid #111;
+}
+
+/* ========== Buttons ========== */
+.btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid #111;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: #111;
+  color: #fff;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.section-actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ========== Hero ========== */
+.hero {
+  padding: 64px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.hero h1 {
+  margin: 0 0 10px 0;
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  line-height: 1.2;
+}
+
+.lead {
+  margin: 0 0 12px 0;
+  font-weight: 600;
+  color: #222;
+}
+
+.hero-media img {
+  border-radius: 18px;
+  border: 1px solid #eee;
+  background: #fafafa;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* ========== Cards ========== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.card {
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 16px;
+  background: #fff;
+}
+
+.card h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.05rem;
+}
+
+.card p {
+  margin: 0;
+  color: #333;
+}
+
+/* ========== Metrics (dl) ========== */
+/* WF-060-03 FIX: metrics を自動列数に（3件/4件どちらも整う） */
+.metrics {
+  margin: 16px 0 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.metrics > div {
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 14px;
+  background: #fff;
+}
+
+.metrics dt {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.metrics dd {
+  margin: 4px 0 0 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* ========== Page hero & prose ========== */
+.page-hero {
+  padding: 44px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.page-hero h1 {
+  margin: 0 0 10px 0;
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+}
+
+.prose {
+  max-width: 820px;
+}
+
+.prose h2 {
+  margin-top: 28px;
+  margin-bottom: 10px;
+}
+
+.list {
+  padding-left: 1.2em;
+}
+
+.case {
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 12px;
+  background: #fff;
+}
+
+.case h3 {
+  margin: 0 0 8px 0;
+}
+
+/* ========== Profile ========== */
+.profile-top {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.profile-media img {
+  border-radius: 18px;
+  border: 1px solid #eee;
+  background: #fafafa;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0 0 10px 0;
+}
+
+.profile-meta {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+/* ========== Form ========== */
+.form-embed {
+  border: 1px dashed #bbb;
+  border-radius: 16px;
+  padding: 14px;
+  background: #fafafa;
+}
+
+/* ========== CTA ========== */
+.cta {
+  padding: 44px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  background: #fafafa;
+}
+
+.cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cta-title {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.cta-text {
+  margin: 0;
+  color: #333;
+}
+
+/* ========== Footer ========== */
+.site-footer {
+  padding: 28px 0;
+}
+
+.footer-inner {
+  border-top: 1px solid #eee;
+  padding-top: 18px;
+  color: #333;
+}
+
+.footer-brand {
+  font-weight: 700;
+  margin: 0 0 6px 0;
+}
+
+.footer-meta {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.footer-copy {
+  margin: 10px 0 0 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 900px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .profile-top {
+    grid-template-columns: 1fr;
+  }
+  .site-nav ul {
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
+/* WF-060-02 A: service headings spacing */
+.prose h2 {
+  padding-top: 8px;
+  border-top: 1px solid #eee;
+}
+/* WF-060-02 B: list readability */
+.prose ul {
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+.prose li {
+  margin: 6px 0;
+}
+/* WF-060-02 C: page hero padding tweak */
+.page-hero {
+  padding: 36px 0;
+}
+/* WF-060-04 OPT: プロフィールの可読性（行長・行間） */
+.profile-summary {
+  max-width: 720px;
+}
+.profile-summary .note {
+  max-width: 60ch; /* 1行の長さを抑える */
+}
+.profile-meta li {
+  margin: 4px 0;
+}
+/* WF-060-04 OPT2: 顔写真枠を少し小さく */
+.profile-media {
+  max-width: 340px;
+}
+/* WF-060-05: Google Forms iframe */
+.form-embed iframe{
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+  min-height: 900px; /* 足りなければ増やす */
+}
+/* WF-060-05 OPT: contactページではCTAを非表示 */
+.page-contact .cta{
+  display: none;
+}
+/* WF-060-05 FIX: contactの箇条書きが左ギリギリにならないように */
+.prose ul.list{
+  padding-left: 1.8em; /* 1.6〜2.0emで好み調整 */
+}
+.prose ul.list li{
+  margin: 6px 0;
+}
+/* WF-060-04 OPT: profile origin text */
+.profile-summary .note {
+  color: #444;
+  line-height: 1.8;
+}
+/* WF-060-05: stabilize embedded form */
+.form-embed iframe {
+  width: 100%;
+  border: 0;
+  display: block;
+}
